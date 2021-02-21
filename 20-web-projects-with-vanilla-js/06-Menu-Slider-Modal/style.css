@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 :root {
-  --modal-duration: 0.7s;
+  --modal-duration: 1s;
   --primary-color: #30336b;
   --secondary-color: #be2edd;
 }
@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: "Lato ", sans-serif;
+  font-family: "Lato", sans-serif;
   margin: 0;
   transition: transform 0.3s ease;
 }
@@ -29,7 +29,7 @@ nav {
   top: 0;
   left: 0;
   width: 200px;
-  height: 100vh;
+  height: 100%;
   z-index: 100;
   transform: translateX(-100%);
 }
