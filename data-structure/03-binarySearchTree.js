@@ -73,5 +73,5 @@ let tree = new BinarySearchTree();
 tree.insert(10);
 tree.insert(5);
 tree.insert(2);
-console.log(tree.contains(2));
+console.log(tree.find(2));
 console.log(tree.contains(11));
