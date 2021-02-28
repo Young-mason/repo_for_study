@@ -1,50 +1,41 @@
 function solution(m, v) {
-    var answer = 0;
-    let tempArr = [m];
-    let storage = [];
-    let count = 0;
+  let board = [v[0]];
 
-
-    for (let val of v) {
-        for (let i=0; i<tempArr.length; i++) {
-            // 쌓을 수 있다
-            if (tempArr[i] >= val) {
-                tempArr[i] = tempArr[i]-val;
-
-                if (tempArr[i] === 0) {
-                    // i번째 인덱스까지 모두 배열에서 제거
-                    for (let j=0; j<=i; j++) {
-                        storage.push(tempArr[0]);
-                        tempArr.shift();
-                    }
-                    tempArr.push(m);
-                }
-
-                break;
-            }
-            // 쌓을 수 없다
-            else {
-                if (i === tempArr.length -1) {
-                    tempArr.push(m);
-                }
-                continue;
-            }
-            
+  let queue = v.slice(1);
+  let start = 0;
+  while (queue.length > 0) {
+    // board의 요소는 m 이하여야 한다.
+    let current = queue.shift();
+    for (let i = start; i < board.length; i++) {
+      if (board[i] + current <= m) {
+        board[i] += current;
+        if (board[i] === m) {
+          start = i;
         }
+        break;
+      } else if (i === board.length - 1) {
+        board.push(current);
+        if (current === m) {
+          start = i + 1;
+        }
+        break;
+      } else {
+        continue;
+      }
     }
-
-    count = storage.length + tempArr.length
-    // tempArr에 m 초기값이 포함되어있다면 - 고고
-
-    if (tempArr.indexOf(m) > -1) {
-        count --;
-    }
-    console.log(storage)
-    console.log(tempArr)
-    return count;
-    
+    // console.log(board);
+  }
+  console.log(board);
+  console.log(board.length);
+  return board.length;
 }
+// solution(4, [2, 3, 1]); // 2
+// [2]
+// [2, 3]
+// [3, 3]
 
-
-console.log(solution(4, []))
-// 6줄.. 
+solution(5, [3, 5]); // 3
+// [3]
+// [3, 2]
+// [3, 2, 3]
+// [4, 2, 3]
