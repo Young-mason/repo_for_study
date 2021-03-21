@@ -28,7 +28,7 @@ class Graph {
 
   depthFirstRecursive(start) {
     const result = [];
-    const visiet = {};
+    const visited = {};
     const adjacencyList = this.adjacencyList;
     (function dfs(vertex) {
       if (!vertex) return null;
