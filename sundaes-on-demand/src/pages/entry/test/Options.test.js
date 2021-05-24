@@ -13,7 +13,7 @@ test("displays image for each scoop option from server", async () => {
   expect(altText).toEqual(["Chocolate scoop", "Vanilla scoop"]);
 });
 
-test("display immages for each topping option from server", async () => {
+test("display images for each topping option from server", async () => {
   render(<Options optionType="toppings" />);
 
   const toppingImages = await screen.findAllByRole("img", {
